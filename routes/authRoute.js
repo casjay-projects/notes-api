@@ -64,6 +64,7 @@ router.post('/register', (req, res) => {
         .then((user) => {
           // res.json({ user: result });
           res.json({ message: 'registerd successfully' });
+          res.json({ username: email });
         })
         .catch((err) => {
           console.log(err);
