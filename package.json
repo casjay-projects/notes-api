@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "lint": "eslint "
+    "lint": "eslint ",
+    "deploy": "gitcommit modified; vercel deploy && vercel deploy --prod"
   },
   "keywords": [],
   "author": "",
