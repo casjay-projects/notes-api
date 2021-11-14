@@ -12,9 +12,7 @@
       "dest": "/index.js"
     }
   ],
-    "env": {
-    "NODE_ENV": "production",
-    "JWT_SECRET": "bhevbjerbjrngjntgjtb",
-    "MONGO_URI": "CHANGE_THIS"
+  "env": {
+    "NODE_ENV": "production"
   }
 }

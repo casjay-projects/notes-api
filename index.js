@@ -22,16 +22,16 @@ mongoose
     useNewUrlParser: true,
   })
   .then(() => console.log('MongoDB Connected....'))
-  .catch((err) => console.error(err));
+  .catch((err) => console.error(`Failed to connect: ${err}`));
 
 // model register
 require('./models/user');
 require('./models/note');
 
 // importing routes middleware
+// app.use('/api/post', require('./routes/imgRoute'));
 app.use('/api/user', require('./routes/authRoute'));
 app.use('/api/post', require('./routes/crudRoute'));
-app.use('/api/post', require('./routes/imgRoute'));
 app.use('/', require('./routes/defaultRoute'));
 
 // Listening to the port

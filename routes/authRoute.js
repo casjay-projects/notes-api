@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-keys */
 const router = require('express').Router();
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
@@ -8,6 +9,41 @@ const { JWT_SECRET } = require('../config/key');
 const { registerValidation, loginValidation } = require('../validation');
 
 // Routers
+router.get('/register', (req, res) => {
+  const serverAdress = `//${req.headers.host}/api/user`;
+  res.setHeader('Content-Type', 'application/json');
+  try {
+    res.send(
+      JSON.stringify({
+        Greetings: ' 🥞 🐛 💜 Welcome to my Notes Server 💜 🐛 🥞 ',
+        Signup: `Send a POST request to ${serverAdress}/register `,
+        name: 'YourName',
+        email: 'YourEmail',
+        password: 'YourPassWord',
+      }),
+    );
+  } catch (error) {
+    res.send('An error has occurred');
+  }
+});
+
+router.get('/login', (req, res) => {
+  const serverAdress = `//${req.headers.host}/api/user`;
+  res.setHeader('Content-Type', 'application/json');
+  try {
+    res.send(
+      JSON.stringify({
+        Greetings: ' 🥞 🐛 💜 Welcome to my Notes Server 💜 🐛 🥞 ',
+        Signup: `Send a POST request to ${serverAdress}/login `,
+        email: 'YourEmail',
+        password: 'YourPassWord',
+      }),
+    );
+  } catch (error) {
+    res.send('An error has occurred');
+  }
+});
+
 router.post('/register', (req, res) => {
   const { name, email, password } = req.body;
   // Validating during registration
@@ -60,6 +96,24 @@ router.post('/login', (req, res) => {
         res.json({ error: err });
       });
   });
+});
+
+router.get('/', (req, res) => {
+  const serverAdress = `//${req.headers.host}/api/user`;
+  res.setHeader('Content-Type', 'application/json');
+  try {
+    res.send(
+      JSON.stringify({
+        Greetings: ' 🥞 🐛 💜 Welcome to my Notes Server 💜 🐛 🥞 ',
+        Signup: `Send a POST request to ${serverAdress}/register `,
+        name: 'YourName',
+        email: 'YourEmail',
+        password: 'YourPassWord',
+      }),
+    );
+  } catch (error) {
+    res.send('An error has occurred');
+  }
 });
 
 module.exports = router;
