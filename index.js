@@ -21,7 +21,7 @@ mongoose
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
-  .then(() => console.log('Mondodb Connected....'))
+  .then(() => console.log('MongoDB Connected....'))
   .catch((err) => console.error(err));
 
 // model register
