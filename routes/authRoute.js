@@ -9,6 +9,24 @@ const { JWT_SECRET } = require('../config/key');
 const { registerValidation, loginValidation } = require('../validation');
 
 // Routers
+router.get('/', (req, res) => {
+  const serverAdress = `//${req.headers.host}/api/user`;
+  res.setHeader('Content-Type', 'application/json');
+  try {
+    res.send(
+      JSON.stringify({
+        Greetings: ' 🥞 🐛 💜 Welcome to my Notes Server 💜 🐛 🥞 ',
+        Signup: `Send a POST request to ${serverAdress}/register `,
+        name: 'YourName',
+        email: 'YourEmail',
+        password: 'YourPassWord',
+      }),
+    );
+  } catch (error) {
+    res.send('An error has occurred');
+  }
+});
+
 router.get('/register', (req, res) => {
   const serverAdress = `//${req.headers.host}/api/user`;
   res.setHeader('Content-Type', 'application/json');
@@ -63,7 +81,7 @@ router.post('/register', (req, res) => {
         .save()
         .then((user) => {
           // res.json({ user: result });
-          res.json({ message: 'registerd successfully' });
+          res.json({ message: 'registered successfully' });
           res.json({ username: email });
         })
         .catch((err) => {
@@ -97,24 +115,6 @@ router.post('/login', (req, res) => {
         res.json({ error: err });
       });
   });
-});
-
-router.get('/', (req, res) => {
-  const serverAdress = `//${req.headers.host}/api/user`;
-  res.setHeader('Content-Type', 'application/json');
-  try {
-    res.send(
-      JSON.stringify({
-        Greetings: ' 🥞 🐛 💜 Welcome to my Notes Server 💜 🐛 🥞 ',
-        Signup: `Send a POST request to ${serverAdress}/register `,
-        name: 'YourName',
-        email: 'YourEmail',
-        password: 'YourPassWord',
-      }),
-    );
-  } catch (error) {
-    res.send('An error has occurred');
-  }
 });
 
 module.exports = router;
