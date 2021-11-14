@@ -33,7 +33,7 @@ require('./models/note');
 // importing routes middleware
 // app.use('/api/post', require('./routes/imgRoute'));
 app.use('/api/user', require('./routes/authRoute'));
-app.use('/api/post', require('./routes/crudRoute'));
+app.use('/api/note', require('./routes/crudRoute'));
 app.use('/', require('./routes/defaultRoute'));
 
 // Listening to the port

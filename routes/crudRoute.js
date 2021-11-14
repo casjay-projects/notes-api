@@ -20,7 +20,7 @@ router.get('/all', protected, (req, res) => {
 
 // get routes
 router.get('/*', (req, res) => {
-  const serverAdress = `//${req.headers.host}/api/notes`;
+  const serverAdress = `${req.protocol}://${req.headers.host}/api/notes`;
   res.setHeader('Content-Type', 'application/json');
   try {
     res.send(

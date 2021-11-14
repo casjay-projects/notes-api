@@ -10,7 +10,7 @@ const { registerValidation, loginValidation } = require('../validation');
 
 // Routers
 router.get('/', (req, res) => {
-  const serverAdress = `//${req.headers.host}/api/user`;
+  const serverAdress = `${req.protocol}://${req.headers.host}/api/user`;
   res.setHeader('Content-Type', 'application/json');
   try {
     res.send(
@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/register', (req, res) => {
-  const serverAdress = `//${req.headers.host}/api/user`;
+  const serverAdress = `${req.protocol}://${req.headers.host}/api/user`;
   res.setHeader('Content-Type', 'application/json');
   try {
     res.send(
@@ -46,7 +46,7 @@ router.get('/register', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  const serverAdress = `//${req.headers.host}/api/user`;
+  const serverAdress = `${req.protocol}://${req.headers.host}/api/user`;
   res.setHeader('Content-Type', 'application/json');
   try {
     res.send(
