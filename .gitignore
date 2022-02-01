@@ -61,3 +61,5 @@ dist
 .webpack/
 
 .vercel
+# ignore commit message
+.gitcommit
